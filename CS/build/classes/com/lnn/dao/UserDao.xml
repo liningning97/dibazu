@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lnn.dao.UserDao">
+    <select id="selectUser" resultType="user">
+     select uid,uname,upass,sex,birthday from userinfo
+    </select>
+    <insert id="insertUser" parameterType="user">
+    INSERT into userinfo (uname,upass,sex,birthday) VALUES(#{uname},#{upass},#{age},#{birthday})
+    </insert>
+    <select id="selectByIdUser" parameterType="int">
+    select uid,uname,upass,sex,birthday from userinfo where uid=#{uid}
+    </select>
+    <update id="updateUser" parameterType="user">
+     update userinfo set uname=#{uname},upass=#{upass}
+    </update>
+    <delete id="deleteUser" parameterType="int">
+     delete from userinfo where uid=#{uid}
+    </delete>
+</mapper>
